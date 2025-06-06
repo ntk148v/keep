@@ -6,6 +6,10 @@
     {
       "username": "${KEEP_ADMIN_USER}",
       "enabled": true,
+      "firstName": "${KEEP_ADMIN_FIRSTNAME}",
+      "lastName": "${KEEP_ADMIN_LASTNAME}",
+      "email": "${KEEP_ADMIN_EMAIL}",
+      "emailVerified": true,
       "credentials": [
         {
           "type": "password",
@@ -14,7 +18,8 @@
         }
       ],
       "attributes": {
-        "keep_role": "admin"
+        "keep_role": "admin",
+        "active_organization": "${KEEP_TENANT_ID}"
       },
       "realmRoles": ["offline_access", "uma_authorization", "admin"],
       "clientRoles": {
