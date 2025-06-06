@@ -6,7 +6,7 @@ from fastapi import HTTPException
 from fastapi.routing import APIRoute
 from starlette.routing import Route
 
-from ee.identitymanager.identity_managers.keycloak.keycloak_authverifier import (
+from keep.ee.identitymanager.identity_managers.keycloak.keycloak_authverifier import (
     KeycloakAuthVerifier,
 )
 from keep.api.core.config import config

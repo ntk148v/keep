@@ -96,7 +96,7 @@ def test_auth0_with_active_tenant_success(db_session, client, test_app):
     mock_jwks_client = MockJWKSClient(public_key_pem)
 
     # Patch the jwks_client in the auth0_authverifier module
-    from ee.identitymanager.identity_managers.auth0.auth0_authverifier import (
+    from keep.ee.identitymanager.identity_managers.auth0.auth0_authverifier import (
         jwks_client,
     )
 
@@ -105,9 +105,9 @@ def test_auth0_with_active_tenant_success(db_session, client, test_app):
 
     try:
         # Replace the module-level client with our mock
-        import ee.identitymanager.identity_managers.auth0.auth0_authverifier
+        import keep.ee.identitymanager.identity_managers.auth0.auth0_authverifier
 
-        ee.identitymanager.identity_managers.auth0.auth0_authverifier.jwks_client = (
+        keep.ee.identitymanager.identity_managers.auth0.auth0_authverifier.jwks_client = (
             mock_jwks_client
         )
 
@@ -128,7 +128,7 @@ def test_auth0_with_active_tenant_success(db_session, client, test_app):
 
     finally:
         # Restore the original jwks_client
-        ee.identitymanager.identity_managers.auth0.auth0_authverifier.jwks_client = (
+        keep.ee.identitymanager.identity_managers.auth0.auth0_authverifier.jwks_client = (
             original_jwks_client
         )
 
@@ -177,7 +177,7 @@ def test_auth0_with_unauthorized_active_tenant(db_session, client, test_app):
     mock_jwks_client = MockJWKSClient(public_key_pem)
 
     # Patch the jwks_client in the auth0_authverifier module
-    from ee.identitymanager.identity_managers.auth0.auth0_authverifier import (
+    from keep.ee.identitymanager.identity_managers.auth0.auth0_authverifier import (
         jwks_client,
     )
 
@@ -186,9 +186,9 @@ def test_auth0_with_unauthorized_active_tenant(db_session, client, test_app):
 
     try:
         # Replace the module-level client with our mock
-        import ee.identitymanager.identity_managers.auth0.auth0_authverifier
+        import keep.ee.identitymanager.identity_managers.auth0.auth0_authverifier
 
-        ee.identitymanager.identity_managers.auth0.auth0_authverifier.jwks_client = (
+        keep.ee.identitymanager.identity_managers.auth0.auth0_authverifier.jwks_client = (
             mock_jwks_client
         )
 
@@ -211,7 +211,7 @@ def test_auth0_with_unauthorized_active_tenant(db_session, client, test_app):
 
     finally:
         # Restore the original jwks_client
-        ee.identitymanager.identity_managers.auth0.auth0_authverifier.jwks_client = (
+        keep.ee.identitymanager.identity_managers.auth0.auth0_authverifier.jwks_client = (
             original_jwks_client
         )
 
@@ -261,7 +261,7 @@ def test_auth0_switching_between_tenants(db_session, client, test_app):
     mock_jwks_client = MockJWKSClient(public_key_pem)
 
     # Patch the jwks_client in the auth0_authverifier module
-    from ee.identitymanager.identity_managers.auth0.auth0_authverifier import (
+    from keep.ee.identitymanager.identity_managers.auth0.auth0_authverifier import (
         jwks_client,
     )
 
@@ -270,9 +270,9 @@ def test_auth0_switching_between_tenants(db_session, client, test_app):
 
     try:
         # Replace the module-level client with our mock
-        import ee.identitymanager.identity_managers.auth0.auth0_authverifier
+        import keep.ee.identitymanager.identity_managers.auth0.auth0_authverifier
 
-        ee.identitymanager.identity_managers.auth0.auth0_authverifier.jwks_client = (
+        keep.ee.identitymanager.identity_managers.auth0.auth0_authverifier.jwks_client = (
             mock_jwks_client
         )
 
@@ -301,7 +301,7 @@ def test_auth0_switching_between_tenants(db_session, client, test_app):
 
     finally:
         # Restore the original jwks_client
-        ee.identitymanager.identity_managers.auth0.auth0_authverifier.jwks_client = (
+        keep.ee.identitymanager.identity_managers.auth0.auth0_authverifier.jwks_client = (
             original_jwks_client
         )
 
@@ -349,7 +349,7 @@ def test_update_user_not_found(db_session, client, test_app):
     mock_jwks_client = MockJWKSClient(public_key_pem)
 
     # Patch the jwks_client in the auth0_authverifier module
-    from ee.identitymanager.identity_managers.auth0.auth0_authverifier import (
+    from keep.ee.identitymanager.identity_managers.auth0.auth0_authverifier import (
         jwks_client,
     )
 
@@ -358,9 +358,9 @@ def test_update_user_not_found(db_session, client, test_app):
 
     try:
         # Replace the module-level client with our mock
-        import ee.identitymanager.identity_managers.auth0.auth0_authverifier
+        import keep.ee.identitymanager.identity_managers.auth0.auth0_authverifier
 
-        ee.identitymanager.identity_managers.auth0.auth0_authverifier.jwks_client = (
+        keep.ee.identitymanager.identity_managers.auth0.auth0_authverifier.jwks_client = (
             mock_jwks_client
         )
 
@@ -372,7 +372,7 @@ def test_update_user_not_found(db_session, client, test_app):
             raise HTTPException(status_code=404, detail="User not found")
 
         with patch(
-            "ee.identitymanager.identity_managers.auth0.auth0_identitymanager.Auth0IdentityManager.update_user",
+            "keep.ee.identitymanager.identity_managers.auth0.auth0_identitymanager.Auth0IdentityManager.update_user",
             side_effect=mock_update_user,
         ):
             # Try to update a non-existent user
@@ -388,6 +388,6 @@ def test_update_user_not_found(db_session, client, test_app):
 
     finally:
         # Restore the original jwks_client
-        ee.identitymanager.identity_managers.auth0.auth0_authverifier.jwks_client = (
+        keep.ee.identitymanager.identity_managers.auth0.auth0_authverifier.jwks_client = (
             original_jwks_client
         )

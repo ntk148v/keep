@@ -113,7 +113,7 @@ class IdentityManagerFactory:
             except ModuleNotFoundError:
                 try:
                     module = importlib.import_module(
-                        f"ee.identitymanager.identity_managers.{manager_type}.{manager_type}_{manager_class}"
+                        f"keep.ee.identitymanager.identity_managers.{manager_type}.{manager_type}_{manager_class}"
                     )
                 except ModuleNotFoundError:
                     raise NotImplementedError(

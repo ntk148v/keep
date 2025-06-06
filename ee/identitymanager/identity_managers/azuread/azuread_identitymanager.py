@@ -1,4 +1,4 @@
-from ee.identitymanager.identity_managers.azuread.azuread_authverifier import (
+from keep.ee.identitymanager.identity_managers.azuread.azuread_authverifier import (
     AzureadAuthVerifier,
 )
 from keep.api.models.user import User

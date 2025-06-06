@@ -4,10 +4,10 @@ import secrets
 import jwt
 from fastapi import HTTPException
 
-from ee.identitymanager.identity_managers.auth0.auth0_authverifier import (
+from keep.ee.identitymanager.identity_managers.auth0.auth0_authverifier import (
     Auth0AuthVerifier,
 )
-from ee.identitymanager.identity_managers.auth0.auth0_utils import getAuth0Client
+from keep.ee.identitymanager.identity_managers.auth0.auth0_utils import getAuth0Client
 from keep.api.models.user import User
 from keep.contextmanager.contextmanager import ContextManager
 from keep.identitymanager.identitymanager import BaseIdentityManager
