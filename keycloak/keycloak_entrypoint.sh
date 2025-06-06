@@ -17,7 +17,7 @@ fi
 # If not KEEP_URL, default Keep frontend to http://localhost:3000
 if [ -z "$KEEP_URL" ]; then
     echo "KEEP_URL is not set. Defaulting to http://localhost:3000"
-    KEEP_URL="http://localhost:3000"
+    KEEP_URL="http://${KEEP_HOST:-localhost}:3000"
 fi
 
 # IF KEEP_REALM, default Keep realm to keep
