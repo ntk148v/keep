@@ -12,7 +12,7 @@ ENV PYTHONFAULTHANDLER=1 \
 #    procps && \
 #    rm -rf /var/lib/apt/lists/*
 
-RUN useradd --user-group --system --create-home --no-log-init keep
+RUN useradd -l --user-group --system --create-home --no-log-init keep
 WORKDIR /app
 
 FROM base as builder
