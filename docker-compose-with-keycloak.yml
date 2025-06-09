@@ -9,7 +9,12 @@ services:
       - KEYCLOAK_ID=keep
       - KEYCLOAK_ISSUER=http://${KEYCLOAK_HOST:-localhost}:8181/auth/realms/keep
       - KEYCLOAK_SECRET=keep-keycloak-secret
-      - API_URL=http://keep-backend:8080
+      - API_URL=http://${KEEP_HOST:-localhost}:8080
+      - PUSHER_DISABLED=true
+      - POSTHOG_DISABLE=true
+      - SENTRY_DISABLED=true
+    ports:
+      - "3001:3000"
     volumes:
       - ./state:/state
     depends_on:
@@ -25,7 +30,7 @@ services:
       dockerfile: ./docker/Dockerfile.api
     environment:
       - AUTH_TYPE=KEYCLOAK
-      - KEYCLOAK_URL=http://${KEYCLOAK_HOST:-localhost}:8181/auth
+      - KEYCLOAK_URL=http://${KEYCLOAK_HOST:-localhost}:8181/auth/
       - KEYCLOAK_REALM=keep
       - KEYCLOAK_CLIENT_ID=keep
       - KEYCLOAK_CLIENT_SECRET=keep-keycloak-secret
@@ -35,6 +40,9 @@ services:
       - PROMETHEUS_MULTIPROC_DIR=/tmp/prometheus
       - SECRET_MANAGER_TYPE=FILE
       - KEEP_METRICS=true
+      - LOG_AUTH_PAYLOAD=false
+      - PUSHER_DISABLED=true
+      - POSTHOG_DISABLE=true
     volumes:
       - ./state:/state
 
