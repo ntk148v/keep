@@ -38,7 +38,7 @@
       "name": "Keep Application",
       "enabled": true,
       "clientAuthenticatorType": "client-secret",
-      "redirectUris": ["${KEEP_AUTH_REDICERT_URL}"],
+      "redirectUris": ["${KEEP_AUTH_REDIRECT_URL}"],
       "webOrigins": [],
       "protocol": "openid-connect",
       "attributes": {
